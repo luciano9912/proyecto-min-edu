@@ -135,6 +135,76 @@
                                 <div class="mb-3">
                                   <label for="vigencia" class="form-label">Vigencia:</label>
                                   <input type="date" name="vigencia" id="vigencia" class="form-control form-control-sm" placeholder="Ingrese su naturaleza,alcance y forma" aria-describedby="helpId" required>
+
+                                  <label for="vigenciaDia" class="form-label">Dia:</label>
+                                  <select name="vigenciaDia" id="vigenciaDia">
+                                    <option value="" selected>Ninguno</option>
+                                    <!-- Iteración de la cantidad de dias de mes -->
+                                      <?php for ($i=1; $i <= 9; $i++) { 
+                                        echo '<option value="0'.$i.'">0'.$i.'</option>';
+                                      }?>
+
+                                      <?php for ($i=10; $i <= 31; $i++) { 
+                                        echo '<option value="'.$i.'">'.$i.'</option>';
+                                      }?>
+                                  </select>
+                                   
+                                  <label for="vigenciaMes" class="form-label">Mes:</label>
+                                  <select name="vigenciaMes" id="vigenciaMes">
+                                    <option value="" selected>Ninguno<option>
+                                      <!-- Iteración de la cantidad de meses del año -->
+                                      <?php 
+
+                                      $vigenciaMesCorto[1]="Ene";
+                                      $vigenciaMesCorto[2]="Feb";
+                                      $vigenciaMesCorto[3]="Mar";
+                                      $vigenciaMesCorto[4]="Abr";
+                                      $vigenciaMesCorto[5]="May";
+                                      $vigenciaMesCorto[6]="Jun";
+                                      $vigenciaMesCorto[7]="Jul";
+                                      $vigenciaMesCorto[8]="Ago";
+                                      $vigenciaMesCorto[9]="Sep";
+                                      $vigenciaMesCorto[10]="Oct";
+                                      $vigenciaMesCorto[11]="Nov";
+                                      $vigenciaMesCorto[12]="Dic";
+
+                                      $vigenciaMes[1]="Enero";
+                                      $vigenciaMes[2]="Febrero";
+                                      $vigenciaMes[3]="Marzo";
+                                      $vigenciaMes[4]="Abril";
+                                      $vigenciaMes[5]="Mayo";
+                                      $vigenciaMes[6]="Junio";
+                                      $vigenciaMes[7]="Julio";
+                                      $vigenciaMes[8]="Agosto";
+                                      $vigenciaMes[9]="Septiembre";
+                                      $vigenciaMes[10]="Octubre";
+                                      $vigenciaMes[11]="Noviembre";
+                                      $vigenciaMes[12]="Diciembre";
+                                        for ($i=1; $i <= 12; $i++) { 
+                                          echo '<option value="'.$vigenciaMesCorto[$i].'">'.$vigenciaMes[$i].'<option>';
+                                        }?>
+                                  </select>  
+                                  
+                                  <label for="vigenciaAnio" class="form-label">Año:</label>
+                                  <select name="vigenciaAnio" id="vigenciaAnio">
+
+                                    <!-- Iteración de la cantidad de dias de mes -->
+                                    <?php 
+
+                                    $select="";
+                                      
+                                      for ($i=1990; $i <= 2060; $i++) { 
+                                          
+                                          if ($i == 2024)
+                                          { $select="selected"; }
+                                          else{
+                                            $select="";
+                                          }
+                                        echo '<option value="'.$i.'" '.$select.'>'.$i.'</option>';
+                                      }?>
+
+                                  </select>
+
                                 </div>
                             </div>
 
@@ -160,16 +230,20 @@
                             </div>
 
                             <div class="col-3">
-                                <div class="mb-3">
+                                <div class="mb-3 ">
                                   <label for="carpeta" class="form-label">Carpeta:</label>
-                                  <input type="text" name="carpeta" id="carpeta" class="form-control form-control-sm" placeholder="Ingrese la carpeta" aria-describedby="helpId" required>
+                                  <div class="d-flex align-items-center">
+                                      <span class="me-1">C </span> <input type="text" name="carpeta" id="carpeta" class="form-control    form-control-sm" placeholder="Ingrese la carpeta" aria-describedby="helpId" required>
+                                  </div>
                                 </div>
                             </div>
 
                             <div class="col-3">
                                 <div class="mb-3">
                                   <label for="folio" class="form-label">Folio:</label>
-                                  <input type="text" name="folio" id="folio" class="form-control form-control-sm" placeholder="Ingrese el folio" aria-describedby="helpId" required>
+                                  <div class="d-flex align-items-center">
+                                      <span class="me-1">F </span><input type="text" name="folio" id="folio" class="form-control    form-control-sm" placeholder="Ingrese el folio" aria-describedby="helpId" required>
+                                  </div>    
                                 </div>
                             </div>
 
